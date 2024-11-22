@@ -10,7 +10,7 @@ namespace Adventure
 	{
 		public static Player currentPlayer = new Player();
 		public static Inventory inventory = new Inventory();
-		public static Items items;
+        public static Items items;
 		static void Main(string[] args)
 		{
 			
@@ -88,13 +88,14 @@ namespace Adventure
 			string input = Console.ReadLine();
 			if (input == "Pickup Cloth")
 			{
-				inventory.addInventory(items[1]);
+	
 
             }
         }
 		static void LoadGame()
 		{
 			Console.WriteLine("Load Game");
+			Floor1.room1();
 		}
 		static void Settings()
 		{

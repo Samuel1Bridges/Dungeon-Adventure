@@ -20,7 +20,7 @@ namespace Adventure
                 if (string.IsNullOrEmpty(inventory[i])) // Find an empty spot
                 {
                     isFull = false;
-                    inventory[i].Add(item);  // Add the item to the first available spot
+                 
                     break;
                 }
             }
@@ -31,7 +31,7 @@ namespace Adventure
             }
             else
             {
-                Console.WriteLine($"\t\t\t\t\t\t\t Item successfully added to inventory: {itemInHand}");
+                Console.WriteLine($"\t\t\t\t\t\t\t Item successfully added to inventory: ");
             }
 
 

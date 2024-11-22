@@ -19,5 +19,22 @@ namespace Adventure
         public int potion;
         public int inventorySize = 10;
         public bool hints = true;
+        public static int encounterchance = 100;
+
+
+        public static void encounterchancedecress(int change)
+        {
+           encounterchance = change;
+        }
+        public static void encounterchanceincress(int change)
+        {
+            encounterchance = encounterchance +  change;
+        }
+
+
     }
+
+
+
+
 }
