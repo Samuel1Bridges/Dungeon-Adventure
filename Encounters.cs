@@ -40,14 +40,14 @@ namespace Adventure
        
         public static void goblins(string roomdesc)
         {
-            Console.WriteLine( roomdesc + "There are 2 small green creatures that almost look like hideous children, " +
+            Console.WriteLine( roomdesc + $" There are 2 small green creatures that almost look like hideous children, " +
                               "but you know by their grunts and growls that they are not human. " +
                               "They carry medium-sized wooden clubs.");
         }
 
         public static void skeleton(string roomdesc)
         {
-            Console.WriteLine( roomdesc + "There is a pale white figure made up of a human skeleton standing in the " +
+            Console.WriteLine( roomdesc + " There is a pale white figure made up of a human skeleton standing in the " +
                               "middle of the room holding an old, chipped, and rusted iron sword. " +
                               "It makes clicking sounds as it turns to see you.");
         }
@@ -55,7 +55,7 @@ namespace Adventure
 
         public static void zombie(string roomdesc)
         {
-            Console.WriteLine( roomdesc + "There is a man standing in the middle of the room with decaying skin, " +
+            Console.WriteLine( roomdesc + " There is a man standing in the middle of the room with decaying skin, " +
                               "pale white eyes, and ragged clothes, making growling sounds.");
         }
     }

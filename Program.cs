@@ -10,8 +10,8 @@ namespace Adventure
 	{
 		public static Player currentPlayer = new Player();
 		public static Inventory inventory = new Inventory();
-        public static Items items;
-		static void Main(string[] args)
+        public static Items[] items = Items.ItemList();
+        static void Main(string[] args)
 		{
 			
 			string title = @"
@@ -58,7 +58,7 @@ namespace Adventure
 
 		static void StartNew()
 		{
-            Items[] items = Items.ItemList();
+            
 
             Console.Clear();
 			Console.WriteLine($"\t\t\t\t\t\t\tDunegon Adventure");
@@ -83,13 +83,55 @@ namespace Adventure
             Console.WriteLine($"\t\t\t cloth on the south side of the room");
 			if(currentPlayer.hints == true)
 			{
-				Console.WriteLine($"\t\t\t\t\t\t\t Hint: Type Pickup and then Item in this case Cloth or stick");
+				Console.WriteLine($"\t\t\t\t\t\t\t Hint: Type Pickup and then Item in this case Cloth");
 			}
 			string input = Console.ReadLine();
-			if (input == "Pickup Cloth")
+			if (input == "pickup cloth")
 			{
-	
+				Inventory.add(items[1].Name);
 
+            }
+            if (currentPlayer.hints == true)
+            {
+                Console.WriteLine($"\t\t\t\t\t\t\t Hint: Now Type Pickup and then Item in this case stick");
+            }
+            string input2 = Console.ReadLine();
+            if (input2 == "pickup stick")
+            {
+                Inventory.add(items[0].Name);
+
+            }
+
+			Console.WriteLine("Now you open you void bag ");
+            if (currentPlayer.hints == true)
+            {
+                Console.WriteLine($"\t\t\t\t\t\t\t Hint: Now Type cpen inventory");
+            }
+			string input3 = Console.ReadLine().ToLower();
+            if (input3 == "open inventory" || input3 == "open inv")
+            {
+				Inventory.get();
+
+            }
+            Console.WriteLine("Now you remmeber how to craft a basic torch");
+            if (currentPlayer.hints == true)
+            {
+                Console.WriteLine($"\t\t\t\t\t\t\t Hint: Now Type open crafting then the next type basic torch");
+            }
+            string input4 = Console.ReadLine().ToLower();
+            if (input4 == "open crafting")
+            {
+                Inventory.craft();
+            }
+            Console.WriteLine("Now you open you void bag ");
+            if (currentPlayer.hints == true)
+            {
+                Console.WriteLine($"\t\t\t\t\t\t\t Hint: Now Type cpen inventory");
+            }
+            string input5 = Console.ReadLine().ToLower();
+            if (input5 == "open inventory")
+            {
+                Inventory.get();
             }
         }
 		static void LoadGame()

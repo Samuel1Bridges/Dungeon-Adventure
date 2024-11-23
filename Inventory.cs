@@ -9,32 +9,90 @@ namespace Adventure
     class Inventory
     {
         public static Player currentPlayer = new Player();
-        
-        private static string[] inventory = new string[currentPlayer.inventorySize];
-        public static void addInventory(Items item)
+        public static Items[] items = Items.ItemList();
+
+        public static string[] playerInventory = new string[currentPlayer.inventorySize];
+        public static void add(string item)
         {
-            // Check if the inventory is full
-            bool isFull = true;
-            for (int i = 0; i < inventory.Length; i++)
+            // Loop through the inventory to find the first empty (null) slot
+            for (int i = 0; i < playerInventory.Length; i++)
             {
-                if (string.IsNullOrEmpty(inventory[i])) // Find an empty spot
+                if (playerInventory[i] == null)  // If the slot is empty (null)
                 {
-                    isFull = false;
-                 
-                    break;
+                    playerInventory[i] = item;  // Add the item to the empty slot
+                    Console.WriteLine($"Item '{item}' added to inventory.");
+                    return;  // Exit the method after adding the item
                 }
             }
 
-            if (isFull)
+            // If no empty slot is found
+            Console.WriteLine("Inventory is full. Unable to add item.");
+        }
+        public static void remove(string item)
+        {
+            for (int i = 0; i < playerInventory.Length; i++)
             {
-                Console.WriteLine("\t\t\t\t\t\t\t Your inventory is full");
+                if (playerInventory[i] == item) {
+                    playerInventory[i].Remove(i);
+                }
             }
-            else
+        }
+        public static void craft()
+        {
+            Console.WriteLine("What do you wish to craft?");
+            string crafting = Console.ReadLine().ToLower();
+            bool foundfirstitem = false;
+            bool foundlastitem = false;
+            switch (crafting)
             {
-                Console.WriteLine($"\t\t\t\t\t\t\t Item successfully added to inventory: ");
+                case "basic torch":
+                    for (int i = 0; i < playerInventory.Length; i++)
+                    {
+                        if ("stick" == playerInventory[i])
+                        {
+                            remove(playerInventory[i]);
+                            foundfirstitem = true;
+                        }
+                        else if ("cloth" == playerInventory[i])
+                        {
+                            remove(playerInventory[i]);
+                            foundlastitem = true;
+                        }
+                    }
+                    if(foundfirstitem == true && foundlastitem == true)
+                    {
+                        add(items[8].Name);
+                        Console.WriteLine("Item successfully crafted");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You are missing an item to craft this...");
+                        Console.ReadLine();
+                    }
+                    break;
+                case "basic pickaxe":
+                    break;
+            }
+            
+        }
+
+        public static void get()
+        {
+            Console.WriteLine("Your Inventory:");
+
+            // Loop through the inventory array
+            for (int i = 0; i < playerInventory.Length; i++)
+            {
+                // Check if the current slot is not null or empty
+                if (!string.IsNullOrEmpty(playerInventory[i]))
+                {
+                    // If the slot has a valid item, print it
+                    Console.WriteLine(playerInventory[i]);
+                }
             }
 
-
+            Console.ReadLine();
         }
     }
 }

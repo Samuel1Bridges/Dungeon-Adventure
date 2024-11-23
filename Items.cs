@@ -33,13 +33,15 @@ namespace Adventure
             // Create an array of Items and populate it
             Items[] items = new Items[11];
 
-            items[0] = new Items("Stick", 15, "raw material", "Stick, a piece of wood", "N/a", 0, false, 0);
-            items[1] = new Items("Basic Wooden Sword", 16, "weapon", "Wooden sword, often used for training", "N/a", 5, false, 0);
-            items[2] = new Items("Basic Leather Armor Chestplate", 22, "armor", "Basic adventure armor", "N/a", 0, false, 8);
-            items[3] = new Items("Basic Leather Armor Hands", 20, "armor", "Basic adventure armor", "N/a", 0, false, 4);
-            items[4] = new Items("Basic Leather Armor Legs", 21, "armor", "Basic adventure armor", "N/a", 0, false, 5);
-            items[5] = new Items("Basic Leather Armor Boots", 20, "armor", "Basic adventure armor", "N/a", 0, false, 5);
-            items[6] = new Items("Basic Leather Armor Hood", 20, "armor", "Basic adventure armor", "N/a", 0, false, 4);
+            items[0] = new Items("stick", 15, "raw material", "stick, a piece of wood", "N/a", 0, false, 0);
+            items[1] = new Items("cloth", 16, "raw material", "A piece of fabric", "N/a", 0, false, 0);
+            items[2] = new Items("Basic Wooden Sword", 16, "weapon", "Wooden sword, often used for training", "N/a", 5, false, 0);
+            items[3] = new Items("Basic Leather Armor Chestplate", 22, "armor", "Basic adventure armor", "N/a", 0, false, 8);
+            items[4] = new Items("Basic Leather Armor Hands", 20, "armor", "Basic adventure armor", "N/a", 0, false, 4);
+            items[5] = new Items("Basic Leather Armor Legs", 21, "armor", "Basic adventure armor", "N/a", 0, false, 5);
+            items[6] = new Items("Basic Leather Armor Boots", 20, "armor", "Basic adventure armor", "N/a", 0, false, 5);
+            items[7] = new Items("Basic Leather Armor Hood", 20, "armor", "Basic adventure armor", "N/a", 0, false, 4);
+            items[8] = new Items("Basic torch", 5, "light source", "wooden stick wiht cloth", "N/a", 5, false, 0);
 
             // Return the populated array of items
             return items;
