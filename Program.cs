@@ -79,60 +79,80 @@ namespace Adventure
 			Console.Clear();
 
 			Console.WriteLine($"\t\t\t As you start to find your bearings you start to look around you you can see peice ");
-			Console.WriteLine($"\t\t\t of wood on the north side of the room as you contimue to look around you can see a");
-            Console.WriteLine($"\t\t\t cloth on the south side of the room");
+			Console.WriteLine($"\t\t\t of wood on the east side of the room as you contimue to look around you can see a");
+            Console.WriteLine($"\t\t\t cloth on the south side of the room and on the north side there is a dark hallway\n" );
+			Console.WriteLine("What do you want to do now?");
 			if(currentPlayer.hints == true)
 			{
-				Console.WriteLine($"\t\t\t\t\t\t\t Hint: Type Pickup and then Item in this case Cloth");
+				Console.WriteLine($"\t\t\t\t Hint: Type Pickup and then Item in this case Cloth \n");
 			}
-			string input = Console.ReadLine();
+            Console.WriteLine($"\t\t\t\t Type command:");
+            string input = Console.ReadLine();
 			if (input == "pickup cloth")
 			{
 				Inventory.add(items[1].Name);
 
             }
+            Console.Clear();
             if (currentPlayer.hints == true)
             {
-                Console.WriteLine($"\t\t\t\t\t\t\t Hint: Now Type Pickup and then Item in this case stick");
+                Console.WriteLine($"\t\t\t\t  Hint: Now Type Pickup and then Item in this case stick \n");
             }
+			Console.WriteLine($"\t\t\t\t Type command:");
             string input2 = Console.ReadLine();
             if (input2 == "pickup stick")
             {
                 Inventory.add(items[0].Name);
 
             }
-
-			Console.WriteLine("Now you open you void bag ");
+			Console.Clear();
+			Console.WriteLine($" \t\t\t\t Now you open you void bag ");
             if (currentPlayer.hints == true)
             {
-                Console.WriteLine($"\t\t\t\t\t\t\t Hint: Now Type cpen inventory");
+                Console.WriteLine($"\t\t\t\t  Hint: Now Type open inventory or open inv");
             }
-			string input3 = Console.ReadLine().ToLower();
+            Console.WriteLine($"\t\t\t\t Type command:");
+            string input3 = Console.ReadLine().ToLower();
             if (input3 == "open inventory" || input3 == "open inv")
             {
 				Inventory.get();
 
             }
-            Console.WriteLine("Now you remmeber how to craft a basic torch");
+			Console.Clear();
+            Console.WriteLine("Now you remmeber how to craft a basic torch \n");
             if (currentPlayer.hints == true)
             {
-                Console.WriteLine($"\t\t\t\t\t\t\t Hint: Now Type open crafting then the next type basic torch");
+                Console.WriteLine($"\t\t\t\t Hint: Now Type open crafting then the next type basic torch \n");
             }
+            Console.WriteLine("Type command:");
             string input4 = Console.ReadLine().ToLower();
             if (input4 == "open crafting")
             {
                 Inventory.craft();
             }
+            Console.Clear();
             Console.WriteLine("Now you open you void bag ");
             if (currentPlayer.hints == true)
             {
-                Console.WriteLine($"\t\t\t\t\t\t\t Hint: Now Type cpen inventory");
+                Console.WriteLine($"\t\t\t\t\t  Hint: Now Type cpen inventory \n");
             }
+            Console.WriteLine("Type command:");
             string input5 = Console.ReadLine().ToLower();
             if (input5 == "open inventory")
             {
                 Inventory.get();
             }
+            Console.Clear();
+			Console.WriteLine("now you decide to start finding a way out of this place as you start to head to the exit");
+			if(currentPlayer.hints == true)
+			{
+				Console.WriteLine($"\t\t\t\t Type north");
+				string input6 = Console.ReadLine().ToLower();
+				if(input6 == "north")
+				{
+					Floor1.room1();
+				}
+			}
         }
 		static void LoadGame()
 		{
